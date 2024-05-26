@@ -1,0 +1,24 @@
+def main():
+    total_cost = 50
+    print(f"Amount Due: {total_cost}")
+    pay(total_cost)
+    
+def pay(remainder):
+    coins = [5, 10, 25]
+    
+    while remainder > 0:
+        coin = int(input("Insert Coin: ").strip())
+        if coin not in coins:
+            print(f"Amount Due: 50")
+        elif coin in coins:
+            remainder = process(coin, remainder)
+            
+def process(coin, remaining_cost):
+    remainder = remaining_cost - coin
+    if remainder <= 0:
+        print(f"Change owed: {(remainder) * -1}")
+    if remainder > 0:
+        print(f"Amount due: {remainder}")
+    return remainder
+
+main()
